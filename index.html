@@ -3,12 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#6366f1">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Charges Q&G">
-<title>Charges Q & G — NF P 06-001 & Eurocode (Pro Edition)</title>
-<link rel="manifest" href='data:application/json,{"name":"Charges Q&G NF P 06-001","short_name":"Charges Q&G","start_url":".","display":"standalone","background_color":"#ffffff","theme_color":"#6366f1"}'>
+<title>Charges Q & G — NF P 06-001 (Application Complète)</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
   :root {
@@ -20,108 +15,90 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#e5e7eb;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}
-  .widget-root{display:flex;height:90vh;max-height:850px;width:100%;max-width:1300px;border-radius:16px;overflow:hidden;background:var(--dash-bg);box-shadow:0 20px 60px rgba(0,0,0,.15);border:1px solid var(--dash-border);transition:all .3s ease;position:relative}
-  .sidebar{width:230px;background:var(--dash-sidebar-bg);border-right:1px solid var(--dash-border);padding:18px 10px;display:flex;flex-direction:column;gap:4px;flex-shrink:0;overflow-y:auto}
-  .sidebar-title{font-size:12px;font-weight:700;color:var(--dash-text-sec);margin-bottom:10px;padding:0 8px;text-transform:uppercase;letter-spacing:.5px}
-  .cat-btn{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;border:none;background:transparent;color:var(--dash-text-sec);font-size:12px;cursor:pointer;transition:all .2s;text-align:left;font-family:inherit;width:100%}
+  .widget-root{display:flex;height:85vh;max-height:800px;width:100%;max-width:1250px;border-radius:16px;overflow:hidden;background:var(--dash-bg);box-shadow:0 20px 60px rgba(0,0,0,.15);border:1px solid var(--dash-border);transition:all .3s ease;position:relative}
+  .sidebar{width:220px;background:var(--dash-sidebar-bg);border-right:1px solid var(--dash-border);padding:18px 10px;display:flex;flex-direction:column;gap:3px;flex-shrink:0;overflow-y:auto}
+  .sidebar-title{font-size:13px;font-weight:600;color:var(--dash-text);margin-bottom:10px;padding:0 8px}
+  .cat-btn{display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:10px;border:none;background:transparent;color:var(--dash-text-sec);font-size:11.5px;cursor:pointer;transition:all .2s;text-align:left;font-family:inherit}
   .cat-btn:hover{background:rgba(0,0,0,.04);color:var(--dash-text)}
-  .cat-btn.active{background:var(--dash-accent);color:#fff;font-weight:600}
-  .cat-icon{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px}
+  .cat-btn.active{background:var(--dash-accent);color:#fff}
+  .cat-icon{width:20px;height:20px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px}
   .cat-btn.active .cat-icon{background:rgba(255,255,255,.2)}
   .cat-btn:not(.active) .cat-icon{background:rgba(0,0,0,.05)}
   .main{flex:1;display:flex;flex-direction:column;overflow:hidden;background:var(--dash-bg);position:relative}
   .topbar{padding:12px 18px;border-bottom:1px solid var(--dash-border);display:flex;align-items:center;gap:10px;background:var(--dash-bg)}
   .search-box{flex:1;position:relative}
-  .search-box input{width:100%;padding:9px 12px 9px 36px;border:1px solid var(--dash-border);border-radius:10px;font-size:13px;font-family:inherit;background:var(--dash-card-bg);color:var(--dash-text);outline:none;transition:border-color .2s}
+  .search-box input{width:100%;padding:7px 11px 7px 32px;border:1px solid var(--dash-border);border-radius:10px;font-size:12px;font-family:inherit;background:var(--dash-card-bg);color:var(--dash-text);outline:none}
   .search-box input:focus{border-color:var(--dash-accent)}
-  .search-box::before{content:"🔍";position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:12px;opacity:.5}
-  .badge-count{font-size:11px;color:var(--dash-text-sec);background:var(--dash-sidebar-bg);padding:6px 12px;border-radius:20px;border:1px solid var(--dash-border);white-space:nowrap;font-weight:600}
+  .search-box::before{content:"🔍";position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:11px;opacity:.5}
+  .badge-count{font-size:11px;color:var(--dash-text-sec);background:var(--dash-sidebar-bg);padding:4px 10px;border-radius:20px;border:1px solid var(--dash-border);white-space:nowrap}
   .theme-switcher{position:relative}
-  .theme-btn{width:36px;height:36px;border-radius:10px;border:1px solid var(--dash-border);background:var(--dash-card-bg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s;color:var(--dash-text)}
+  .theme-btn{width:32px;height:32px;border-radius:9px;border:1px solid var(--dash-border);background:var(--dash-card-bg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .2s;color:var(--dash-text)}
   .theme-btn:hover{border-color:var(--dash-accent)}
-  .theme-menu{position:absolute;top:44px;right:0;background:var(--dash-card-bg);border:1px solid var(--dash-border);border-radius:12px;padding:8px;display:none;flex-direction:column;gap:4px;box-shadow:0 8px 24px rgba(0,0,0,.15);z-index:100;min-width:160px}
+  .theme-menu{position:absolute;top:40px;right:0;background:var(--dash-card-bg);border:1px solid var(--dash-border);border-radius:12px;padding:8px;display:none;flex-direction:column;gap:4px;box-shadow:0 8px 24px rgba(0,0,0,.15);z-index:100;min-width:150px}
   .theme-menu.open{display:flex}
-  .theme-option{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;border:none;background:transparent;cursor:pointer;font-size:12px;font-family:inherit;color:var(--dash-text);transition:background .2s;width:100%;text-align:left}
+  .theme-option{display:flex;align-items:center;gap:10px;padding:7px 9px;border-radius:8px;border:none;background:transparent;cursor:pointer;font-size:12px;font-family:inherit;color:var(--dash-text);transition:background .2s;width:100%;text-align:left}
   .theme-option:hover{background:var(--dash-sidebar-bg)}
-  .theme-option.active{background:rgba(99,102,241,.12);font-weight:600}
+  .theme-option.active{background:rgba(99,102,241,.12)}
   .theme-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--dash-border)}
-  .mobile-cat-bar{display:none;overflow-x:auto;padding:8px 12px;border-bottom:1px solid var(--dash-border);gap:6px;background:var(--dash-sidebar-bg);-webkit-overflow-scrolling:touch}
-  .mobile-cat-pill{padding:6px 12px;border-radius:20px;border:1px solid var(--dash-border);background:var(--dash-card-bg);color:var(--dash-text-sec);font-size:11px;white-space:nowrap;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
-  .mobile-cat-pill.active{background:var(--dash-accent);color:#fff;border-color:var(--dash-accent);font-weight:600}
-  .room-list{flex:1;overflow-y:auto;padding:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;align-content:start;background:var(--dash-bg)}
+  .room-list{flex:1;overflow-y:auto;padding:14px 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;align-content:start;background:var(--dash-bg)}
   .room-card{padding:14px;border:1px solid var(--dash-border);border-radius:12px;cursor:pointer;transition:all .2s;background:var(--dash-card-bg);text-align:left;font-family:inherit;position:relative}
-  .room-card:hover{border-color:var(--dash-accent);box-shadow:0 4px 14px rgba(0,0,0,.08);transform:translateY(-2px)}
-  .room-card.selected{border-color:var(--dash-accent);box-shadow:0 0 0 3px rgba(99,102,241,.18)}
+  .room-card:hover{border-color:var(--dash-accent);box-shadow:0 4px 12px rgba(0,0,0,.08);transform:translateY(-2px)}
+  .room-card.selected{border-color:var(--dash-accent);box-shadow:0 0 0 3px rgba(99,102,241,.15)}
   .room-card .room-name{font-size:13px;font-weight:600;color:var(--dash-text);line-height:1.4;margin-bottom:8px}
-  .room-card .room-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px}
-  .room-card .tag{font-size:10px;padding:3px 8px;border-radius:6px;font-weight:600}
-  .room-card .cat-tag{font-size:9px;padding:3px 6px;border-radius:4px;background:rgba(99,102,241,.08);color:var(--dash-accent);font-weight:700;text-transform:uppercase;letter-spacing:.3px}
-  .room-card .match-preview{font-size:10px;color:var(--dash-text-ter);margin-top:6px;line-height:1.4;font-style:italic}
-  .detail-panel{width:360px;background:var(--dash-sidebar-bg);border-left:1px solid var(--dash-border);padding:20px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;flex-shrink:0}
-  .detail-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--dash-text-ter);font-size:13px;text-align:center;gap:10px}
-  .detail-header{display:flex;align-items:center;gap:12px;margin-bottom:2px}
-  .detail-header .icon{font-size:26px}
-  .detail-title{font-size:16px;font-weight:700;color:var(--dash-text);line-height:1.3}
-  .detail-cat{font-size:10px;color:var(--dash-text-ter);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+  .room-card .room-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px}
+  .room-card .tag{font-size:10px;padding:3px 8px;border-radius:6px;font-weight:500}
+  .room-card .cat-tag{font-size:9px;padding:2px 6px;border-radius:4px;background:rgba(99,102,241,.08);color:var(--dash-accent);font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+  .room-card .match-preview{font-size:10px;color:var(--dash-text-ter);margin-top:4px;line-height:1.4;font-style:italic}
+  .detail-panel{width:340px;background:var(--dash-sidebar-bg);border-left:1px solid var(--dash-border);padding:20px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;flex-shrink:0}
+  .detail-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--dash-text-ter);font-size:12px;text-align:center;gap:8px}
+  .detail-header{display:flex;align-items:center;gap:10px;margin-bottom:2px}
+  .detail-header .icon{font-size:24px}
+  .detail-title{font-size:15px;font-weight:700;color:var(--dash-text);line-height:1.3}
+  .detail-cat{font-size:10px;color:var(--dash-text-ter);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
   .big-cards{display:flex;flex-direction:column;gap:12px}
-  .big-card{border-radius:14px;padding:16px;position:relative;overflow:hidden;background:var(--dash-card-bg);border:1px solid var(--dash-border)}
+  .big-card{border-radius:14px;padding:18px;position:relative;overflow:hidden;background:var(--dash-card-bg);border:1px solid var(--dash-border)}
   .big-card.q-card{border-color:rgba(59,130,246,.3);background:linear-gradient(135deg,rgba(59,130,246,.06),var(--dash-card-bg))}
   .big-card.g-card{border-color:rgba(16,185,129,.3);background:linear-gradient(135deg,rgba(16,185,129,.06),var(--dash-card-bg))}
-  .big-card .bc-label{font-size:11px;color:var(--dash-text-sec);margin-bottom:8px;display:flex;align-items:center;gap:6px;font-weight:600}
-  .big-card .bc-value{font-size:32px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+  .big-card .bc-label{font-size:11px;color:var(--dash-text-sec);margin-bottom:8px;display:flex;align-items:center;gap:5px;font-weight:500}
+  .big-card .bc-value{font-size:36px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
   .big-card.q-card .bc-value{color:var(--dash-q-color)}
   .big-card.g-card .bc-value{color:var(--dash-g-color)}
   .big-card .bc-unit{font-size:11px;color:var(--dash-text-ter);margin-top:6px}
-  .big-card .bc-bar{height:5px;border-radius:3px;margin-top:12px;background:var(--dash-border);overflow:hidden}
-  .big-card .bc-bar-fill{height:100%;border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+  .big-card .bc-bar{height:4px;border-radius:2px;margin-top:12px;background:var(--dash-border);overflow:hidden}
+  .big-card .bc-bar-fill{height:100%;border-radius:2px;transition:width .6s cubic-bezier(.4,0,.2,1)}
   .q-card .bc-bar-fill{background:var(--dash-q-color)}
   .g-card .bc-bar-fill{background:var(--dash-g-color)}
-  .q-input{width:100%;padding:8px 12px;border:2px solid var(--dash-border);border-radius:10px;font-size:16px;font-weight:700;color:var(--dash-q-color);background:var(--dash-bg);font-family:inherit;outline:none;margin-top:6px;transition:border-color .2s}
+  .q-input{width:100%;padding:10px 12px;border:2px solid var(--dash-border);border-radius:10px;font-size:16px;font-weight:700;color:var(--dash-q-color);background:var(--dash-bg);font-family:inherit;outline:none;margin-top:8px;transition:border-color .2s}
   .q-input:focus{border-color:var(--dash-q-color)}
-  .range-info{font-size:10px;color:var(--dash-text-ter);margin-top:6px;font-weight:500}
-  
-  /* CALCULATOR MODULE */
-  .calc-box{background:var(--dash-card-bg);border:1px solid var(--dash-border);border-radius:12px;padding:14px}
-  .calc-box h4{font-size:11px;font-weight:700;color:var(--dash-accent);margin:0 0 10px 0;text-transform:uppercase;letter-spacing:.4px;display:flex;align-items:center;gap:6px}
-  .calc-inputs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-  .calc-field label{display:block;font-size:10px;color:var(--dash-text-sec);margin-bottom:4px;font-weight:600}
-  .calc-field input{width:100%;padding:6px 8px;border:1px solid var(--dash-border);border-radius:6px;font-size:12px;background:var(--dash-bg);color:var(--dash-text);font-weight:600}
-  .calc-res-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--dash-sidebar-bg);padding:10px;border-radius:8px}
-  .calc-res-item{text-align:center}
-  .calc-res-item .lbl{font-size:9px;color:var(--dash-text-sec);font-weight:700;text-transform:uppercase}
-  .calc-res-item .val{font-size:14px;font-weight:700;color:var(--dash-accent);margin-top:2px}
-
+  .range-info{font-size:11px;color:var(--dash-text-ter);margin-top:6px;font-weight:500}
   .info-section{background:var(--dash-card-bg);border:1px solid var(--dash-border);border-radius:12px;padding:14px}
   .info-section h4{font-size:10px;font-weight:700;color:var(--dash-text-sec);margin:0 0 8px 0;text-transform:uppercase;letter-spacing:.4px}
   .info-section p{font-size:12px;color:var(--dash-text-sec);line-height:1.6;margin:0}
   .scenario-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
   .scenario-table th{background:var(--dash-sidebar-bg);padding:8px 6px;text-align:left;font-weight:600;color:var(--dash-text-sec);border-bottom:2px solid var(--dash-border);font-size:9px;text-transform:uppercase;letter-spacing:.3px}
   .scenario-table td{padding:8px 6px;border-bottom:1px solid var(--dash-border);color:var(--dash-text);vertical-align:top}
-  .scenario-table td:first-child{font-weight:600;color:var(--dash-text-sec);width:30%}
+  .scenario-table td:first-child{font-weight:600;color:var(--dash-text-sec);width:28%}
   .scenario-table tr:hover td{background:rgba(99,102,241,.03)}
   .scenario-table .active-row td{background:rgba(59,130,246,.08)!important;color:var(--dash-q-color)!important;font-weight:700}
   .scenario-table .active-row td:first-child{color:var(--dash-q-color)!important}
   .explanation-box{background:var(--dash-card-bg);border:1px solid var(--dash-border);border-radius:12px;padding:14px}
   .explanation-box h4{font-size:10px;font-weight:700;color:var(--dash-text-sec);margin:0 0 10px 0;text-transform:uppercase;letter-spacing:.4px}
-  .explanation-box ul{margin:0;padding-left:16px;font-size:11.5px;color:var(--dash-text-sec);line-height:1.6}
+  .explanation-box ul{margin:0;padding-left:16px;font-size:12px;color:var(--dash-text-sec);line-height:1.7}
   .explanation-box li{margin-bottom:6px}
   .ref-box{background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.15);border-radius:12px;padding:12px 14px}
   .ref-box h4{font-size:10px;font-weight:700;color:var(--dash-accent);margin:0 0 6px 0;text-transform:uppercase;letter-spacing:.4px}
-  .ref-box p{font-size:11px;color:var(--dash-text-sec);margin:0;line-height:1.5}
+  .ref-box p{font-size:11px;color:var(--dash-text-sec);margin:0;line-height:1.6}
   .hl{background:var(--highlight-bg);color:var(--highlight-text);padding:0 3px;border-radius:4px;font-weight:700}
 
-  .action-btn{width:100%;padding:10px;border-radius:10px;border:none;background:var(--dash-accent);color:#fff;font-weight:600;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:opacity .2s}
-  .action-btn:hover{opacity:.9}
-
-  /* MOBILE BOTTOM SHEET */
-  .mobile-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s ease;backdrop-filter:blur(2px)}
+  /* ===== MOBILE BOTTOM SHEET ===== */
+  .mobile-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s ease}
   .mobile-backdrop.open{opacity:1;pointer-events:auto}
-  .mobile-sheet{position:fixed;bottom:0;left:0;right:0;background:var(--dash-bg);border-radius:20px 20px 0 0;z-index:210;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);max-height:88vh;display:flex;flex-direction:column;box-shadow:0 -10px 40px rgba(0,0,0,.2)}
+  .mobile-sheet{position:fixed;bottom:0;left:0;right:0;background:var(--dash-bg);border-radius:20px 20px 0 0;z-index:210;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);max-height:85vh;display:flex;flex-direction:column;box-shadow:0 -10px 40px rgba(0,0,0,.2)}
   .mobile-sheet.open{transform:translateY(0)}
-  .sheet-handle{width:40px;height:4px;background:var(--dash-border);border-radius:2px;margin:10px auto;flex-shrink:0}
+  .sheet-handle{width:36px;height:4px;background:var(--dash-border);border-radius:2px;margin:10px auto;flex-shrink:0}
   .sheet-header{display:flex;align-items:center;justify-content:space-between;padding:0 20px 10px;border-bottom:1px solid var(--dash-border);flex-shrink:0}
   .sheet-title{font-size:15px;font-weight:700;color:var(--dash-text)}
-  .sheet-close{width:32px;height:32px;border-radius:50%;border:1px solid var(--dash-border);background:var(--dash-card-bg);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--dash-text)}
+  .sheet-close{width:32px;height:32px;border-radius:50%;border:1px solid var(--dash-border);background:var(--dash-card-bg);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--dash-text)}
   .sheet-content{flex:1;overflow-y:auto;padding:16px 20px 30px;display:flex;flex-direction:column;gap:14px}
 
   ::-webkit-scrollbar{width:5px}
@@ -129,34 +106,49 @@
 
   @media(max-width:900px){
     body{padding:0}
-    .widget-root{border-radius:0;height:100vh;max-height:none;max-width:none;border:none}
-    .detail-panel,.sidebar{display:none}
-    .mobile-cat-bar{display:flex}
-    .room-list{grid-template-columns:1fr;padding:12px}
+    .widget-root{border-radius:0;height:100vh;max-height:none;max-width:none}
+    .detail-panel{display:none}
+    .sidebar{width:60px;padding:12px 6px}
+    .sidebar-title,.cat-btn span{display:none}
+    .cat-btn{padding:10px;justify-content:center}
+    .cat-icon{width:24px;height:24px;font-size:14px}
+    .room-list{grid-template-columns:1fr;padding:10px}
     .room-card{padding:14px}
-    .topbar{padding:10px 12px}
+    .topbar{padding:10px}
   }
   @media(min-width:901px){
-    .mobile-backdrop,.mobile-sheet,.mobile-cat-bar{display:none!important}
+    .mobile-backdrop,.mobile-sheet{display:none!important}
   }
 </style>
 </head>
 <body>
 
 <div class="widget-root" id="dashRoot">
-  <!-- Desktop Sidebar -->
   <div class="sidebar">
     <div class="sidebar-title">Catégories</div>
-    <div id="desktopCatList"></div>
+    <button class="cat-btn active" data-cat="all" onclick="filterCat('all')"><div class="cat-icon">🌐</div><span>Tout</span></button>
+    <button class="cat-btn" data-cat="Habitation" onclick="filterCat('Habitation')"><div class="cat-icon">🏠</div><span>Habitation</span></button>
+    <button class="cat-btn" data-cat="Bureaux" onclick="filterCat('Bureaux')"><div class="cat-icon">🏢</div><span>Bureaux</span></button>
+    <button class="cat-btn" data-cat="Scolaire" onclick="filterCat('Scolaire')"><div class="cat-icon">🎓</div><span>Scolaire</span></button>
+    <button class="cat-btn" data-cat="Hospitalier" onclick="filterCat('Hospitalier')"><div class="cat-icon">🏥</div><span>Hospitalier</span></button>
+    <button class="cat-btn" data-cat="Hôtellerie" onclick="filterCat('Hôtellerie')"><div class="cat-icon">🏨</div><span>Hôtellerie</span></button>
+    <button class="cat-btn" data-cat="Restauration" onclick="filterCat('Restauration')"><div class="cat-icon">🍽️</div><span>Restauration</span></button>
+    <button class="cat-btn" data-cat="Commerce" onclick="filterCat('Commerce')"><div class="cat-icon">🛒</div><span>Commerce</span></button>
+    <button class="cat-btn" data-cat="Loisirs" onclick="filterCat('Loisirs')"><div class="cat-icon">🎭</div><span>Loisirs</span></button>
+    <button class="cat-btn" data-cat="Spectacles" onclick="filterCat('Spectacles')"><div class="cat-icon">🎬</div><span>Spectacles</span></button>
+    <button class="cat-btn" data-cat="Sport" onclick="filterCat('Sport')"><div class="cat-icon">⚽</div><span>Sport</span></button>
+    <button class="cat-btn" data-cat="Industriel" onclick="filterCat('Industriel')"><div class="cat-icon">🏭</div><span>Industriel</span></button>
+    <button class="cat-btn" data-cat="Transport" onclick="filterCat('Transport')"><div class="cat-icon">🚗</div><span>Transport</span></button>
+    <button class="cat-btn" data-cat="Religieux" onclick="filterCat('Religieux')"><div class="cat-icon">🕌</div><span>Religieux</span></button>
+    <button class="cat-btn" data-cat="Autres" onclick="filterCat('Autres')"><div class="cat-icon">📦</div><span>Autres</span></button>
   </div>
 
   <div class="main">
-    <!-- Topbar -->
     <div class="topbar">
       <div class="search-box"><input type="text" id="searchInput" placeholder="Rechercher (ex: hospital, 500, terrain...)" oninput="doSearch()"></div>
       <div class="badge-count" id="countBadge">—</div>
       <div class="theme-switcher">
-        <button class="theme-btn" onclick="toggleThemeMenu()" title="Changer le thème">🎨</button>
+        <button class="theme-btn" onclick="toggleThemeMenu()">🎨</button>
         <div class="theme-menu" id="themeMenu">
           <button class="theme-option active" onclick="setTheme('light')"><div class="theme-dot" style="background:#fff;border-color:#d1d5db"></div><span>Clair</span></button>
           <button class="theme-option" onclick="setTheme('dark')"><div class="theme-dot" style="background:#1a1a2e;border-color:#374151"></div><span>Sombre</span></button>
@@ -167,17 +159,11 @@
         </div>
       </div>
     </div>
-
-    <!-- Mobile Horizontal Category Bar -->
-    <div class="mobile-cat-bar" id="mobileCatBar"></div>
-
-    <!-- Room Grid -->
     <div class="room-list" id="roomList"></div>
   </div>
 
-  <!-- Desktop Detail Panel -->
   <div class="detail-panel" id="detailPanel">
-    <div class="detail-empty"><div style="font-size:36px;opacity:.4">📐</div><div>Sélectionnez un local<br>pour calculer Q et G</div></div>
+    <div class="detail-empty"><div style="font-size:32px;opacity:.4">📐</div><div>Sélectionnez un local<br>pour voir Q et G</div></div>
   </div>
 </div>
 
@@ -201,38 +187,591 @@ const themes={
   purple:{'--dash-bg':'#1e1b4b','--dash-sidebar-bg':'#2e1065','--dash-card-bg':'#312e81','--dash-text':'#f5f3ff','--dash-text-sec':'#c4b5fd','--dash-text-ter':'#a78bfa','--dash-border':'#4c1d95','--dash-accent':'#a78bfa','--dash-q-color':'#c4b5fd','--dash-g-color':'#e879f9','--highlight-bg':'#4c1d95','--highlight-text':'#fde68a'},
   orange:{'--dash-bg':'#2a1005','--dash-sidebar-bg':'#431407','--dash-card-bg':'#4a1809','--dash-text':'#fff7ed','--dash-text-sec':'#fdba74','--dash-text-ter':'#fb923c','--dash-border':'#7c2d12','--dash-accent':'#f97316','--dash-q-color':'#fb923c','--dash-g-color':'#fcd34d','--highlight-bg':'#7c2d12','--highlight-text':'#fef3c7'}
 };
-
-const categories = [
-  {id:'all', name:'Tout', icon:'🌐'},
-  {id:'Habitation', name:'Habitation', icon:'🏠'},
-  {id:'Bureaux', name:'Bureaux', icon:'🏢'},
-  {id:'Scolaire', name:'Scolaire', icon:'🎓'},
-  {id:'Hospitalier', name:'Hospitalier', icon:'🏥'},
-  {id:'Hôtellerie', name:'Hôtellerie', icon:'🏨'},
-  {id:'Restauration', name:'Restauration', icon:'🍽️'},
-  {id:'Commerce', name:'Commerce', icon:'🛒'},
-  {id:'Loisirs', name:'Loisirs', icon:'🎭'},
-  {id:'Spectacles', name:'Spectacles', icon:'🎬'},
-  {id:'Sport', name:'Sport', icon:'⚽'},
-  {id:'Industriel', name:'Industriel', icon:'🏭'},
-  {id:'Transport', name:'Transport', icon:'🚗'},
-  {id:'Religieux', name:'Religieux', icon:'🕌'},
-  {id:'Autres', name:'Autres', icon:'📦'}
-];
-
-let currentTheme='light', currentCat='all', currentSearch='', selectedId=null;
-const maxQ=1200, maxG=700;
+let currentTheme='light',currentCat='all',currentSearch='',selectedId=null;
+const maxQ=1200,maxG=700;
 
 function setTheme(name){
   currentTheme=name;
-  const root=document.getElementById('dashRoot'), t=themes[name];
-  for(let k in t) root.style.setProperty(k,t[k]);
+  const root=document.getElementById('dashRoot'),t=themes[name];
+  for(let k in t)root.style.setProperty(k,t[k]);
   document.querySelectorAll('.theme-option').forEach(opt=>opt.classList.toggle('active',opt.getAttribute('onclick').includes("'"+name+"'")));
   document.getElementById('themeMenu').classList.remove('open');
 }
-function toggleThemeMenu(){ document.getElementById('themeMenu').classList.toggle('open') }
-document.addEventListener('click', e=>{ if(!e.target.closest('.theme-switcher')) document.getElementById('themeMenu').classList.remove('open') });
+function toggleThemeMenu(){document.getElementById('themeMenu').classList.toggle('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.theme-switcher'))document.getElementById('themeMenu').classList.remove('open')});
 
-// Synonyms Map
+// ==================== SYNONYMES ====================
 const synonymMap={
-  'hospital':['hospital','hopital','hôpital','hospitalier','soins','medical',
+  'hospital':['hospital','hopital','hôpital','hospitalier','soins','medical','médical','clinique','chirurgie','patient','infirmerie','sante','santé'],
+  'hopital':['hospital','hopital','hôpital','hospitalier','soins','medical','médical','clinique'],
+  'cuisine':['cuisine','restaurant','restauration','chef','alimentaire','collective','depot','dépôt','stockage alimentaire','cantine','réfectoire','refectoire'],
+  'restaurant':['restaurant','restauration','salle','bar','lounge','cafétéria','cantine','réfectoire','refectoire','brasserie'],
+  'bureau':['bureau','bureaux','office','administration','open-space','openspace','travail','open space','openspace'],
+  'ecole':['scolaire','école','ecole','classe','amphithéâtre','amphi','cantine scolaire','etudiant','étudiant','enseignement','lycee','lycée','college','collège'],
+  'school':['scolaire','école','ecole','classe','amphithéâtre','amphi','etudiant','étudiant','enseignement'],
+  'habitation':['habitation','logement','appartement','maison','residentiel','résidentiel','domicile','balcon','grenier','comble','toit','terrasse'],
+  'loisir':['loisir','loisirs','spectacle','theatre','théâtre','conference','conférence','culte','golf','sport','detente','détente','jeux','game'],
+  'sante':['hospitalier','soins','medical','médical','sante','santé','infirmerie','operation','opération','pharmacie','dentiste'],
+  'stockage':['stockage','depot','dépôt','reserve','réserve','entrepot','entrepôt','garage','parking','magasin','archive','soussol','sous-sol'],
+  'salle':['salle','hall','amphithéâtre','amphi','reunion','réunion','conference','conférence','exposition','projection','seminaire','séminaire'],
+  'toit':['toit','terrasse','comble','grenier','etancheite','étanchéité','couverture','zinc','tuile'],
+  'balcon':['balcon','terrasse','loggia','vue','exterieur','extérieur','balustrade'],
+  'escalier':['escalier','hall','circulation','passage','entree','entrée','corridor','couloir'],
+  'nf':['nf','norme','p 06-001','p 06-004','reglementation','réglementation','dtu','eurocode','bael','eurocodes'],
+  'q':['charge exploitation','q','surcharge','exploitation','variable','occupation','dalle','plancher'],
+  'g':['charge permanente','g','permanente','poids propre','structure','dead load','cloison','enduit'],
+  '500':['500','lourd','professionnel','cuisine','depot','dépôt','stockage lourd','spectacle','industriel','atelier'],
+  '250':['250','leger','léger','light','habitation','bureau','standard','minimum','appartement'],
+  'hotel':['hotel','hôtel','hotellerie','hôtellerie','chambre','reception','réception','suite','spa','hammam'],
+  'commerce':['commerce','magasin','boutique','supermarche','supermarché','grande surface','galeries','marchande','vente','shop'],
+  'sport':['sport','gymnase','gym','terrain','foot','basket','tennis','piscine','natation','athletisme','athlétisme','stade','tribune','gradin'],
+  'foot':['foot','football','terrain','stade','pelouse','synthétique','tribune','gradin'],
+  'piscine':['piscine','natation','baignade','plage','bassin','aquatique'],
+  'industriel':['industriel','usine','atelier','manufacture','production','logistique','entrepot','entrepôt','grue','machine'],
+  'transport':['transport','parking','garage','gare','routier','aeroport','aéroport','tunnel','metro','métro','bus','quai'],
+  'religieux':['religieux','culte','mosquee','mosquée','eglise','église','temple','synagogue','priere','prière','wudu','ablution','minaret'],
+  'spectacle':['spectacle','cinema','cinéma','theatre','théâtre','concert','salle','projection','ecran','écran','scene','scène'],
+  'archive':['archive','archives','fichier','document','conservation','record']
+};
+
+function normalizeText(text){
+  if(!text)return'';
+  return text.toLowerCase()
+    .replace(/[àáâãäå]/g,'a').replace(/[èéêë]/g,'e').replace(/[ìíîï]/g,'i')
+    .replace(/[òóôõö]/g,'o').replace(/[ùúûü]/g,'u').replace(/[ç]/g,'c')
+    .replace(/[œ]/g,'oe').replace(/[æ]/g,'ae').replace(/[^a-z0-9\s]/g,'');
+}
+
+function expandSearchTerms(rawQuery){
+  const normalized=normalizeText(rawQuery).trim();
+  if(!normalized)return[];
+  const terms=[normalized];
+  for(let key in synonymMap){
+    if(normalized.includes(key)||key.includes(normalized)){
+      terms.push(...synonymMap[key].map(normalizeText));
+    }
+  }
+  normalized.split(/\s+/).forEach(word=>{
+    if(word.length>2)terms.push(word);
+    for(let key in synonymMap){
+      if(word.includes(key)||key.includes(word)){
+        terms.push(...synonymMap[key].map(normalizeText));
+      }
+    }
+  });
+  return[...new Set(terms)];
+}
+
+function smartSearch(room,terms){
+  const haystack=normalizeText(room.name+' '+room.cat+' '+room.desc+' '+room.explanation+' '+room.q+' '+room.g);
+  let score=0;
+  terms.forEach(term=>{if(haystack.includes(term))score+=1;});
+  return score;
+}
+
+function highlightText(text,terms){
+  if(!terms.length)return text;
+  let html=text;
+  const seen=new Set();
+  terms.forEach(term=>{
+    if(seen.has(term)||term.length<2)return;
+    seen.add(term);
+    const escaped=term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    try{
+      const regex=new RegExp(`(${escaped})`,'gi');
+      html=html.replace(regex,'<span class="hl">$1</span>');
+    }catch(e){}
+  });
+  return html;
+}
+
+// ==================== SCÉNARIOS DÉTAILLÉS ====================
+const scenarios={
+  "Restaurant (salle principale)":{
+    low:{val:250,desc:"Tables pliantes légères, chaises empilables, aucun buffet fixe, densité < 1 pers/m²"},
+    mid:{val:375,desc:"Tables standard + chaises, faux-plafond BA13, éclairage standard, densité moyenne"},
+    high:{val:500,desc:"Buffet intégré lourd, bar fixe, décoration suspendue, banquet complet, densité élevée"}
+  },
+  "Bar Lounge":{
+    low:{val:250,desc:"Tabourets hauts légers, bar mobile, tables hautes sans pied lourd, circulation libre"},
+    mid:{val:325,desc:"Mix tabourets + canapés légers, bar semi-fixe, tables basses, ambiance casual"},
+    high:{val:400,desc:"Canapés fixes lourds, tables basses en marbre/granit, bar intégré, éclairage architectural lourd"}
+  },
+  "Golf Lounge":{
+    low:{val:250,desc:"Simulateurs portables, chaises de bureau légères, tapis de putting amovibles"},
+    mid:{val:325,desc:"Simulateurs semi-fixes, fauteuils club standards, mobilier lounge moyen"},
+    high:{val:400,desc:"Simulateurs fixes lourds (TrackMan/GCQuad), canapés cuir, bar intégré, écrans 4K muraux"}
+  },
+  "Salle de conférence":{
+    low:{val:400,desc:"Tables mobiles pliantes, chaises empilables, aucun gradin, vidéoprojecteur portable"},
+    mid:{val:425,desc:"Tables modulaires moyennes, chaises fixes légères, faux-plafond acoustique"},
+    high:{val:450,desc:"Gradins béton fixes, sièges fixes avec tablette, estrade lourde, équipement AV intégré"}
+  },
+  "Théâtre / Conférence (assis)":{
+    low:{val:400,desc:"Chaises empilables sur sol plat, scène mobile légère, sans gradin"},
+    mid:{val:425,desc:"Sièges fixes légers, gradins métalliques, scène semi-fixe"},
+    high:{val:450,desc:"Sièges fixes rembourrés, gradins béton, scène fixe avec équipement lourd"}
+  },
+  "Stockage lourd (350-600)":{
+    low:{val:350,desc:"Linge, consommables, archives papier légères, petit matériel médical"},
+    mid:{val:475,desc:"Mix archives + matériel moyen, rayonnages métalliques standards"},
+    high:{val:600,desc:"Appareillages lourds, archives métalliques densifiées, équipements de rechange lourds"}
+  },
+  "Halls de réception":{
+    low:{val:250,desc:"Hall vide, simple passage, aucun mobilier, exposition temporaire légère"},
+    mid:{val:400,desc:"Cocktail debout, high tables légères, banquette modulaire, tapis rouge"},
+    high:{val:500,desc:"Banquet complet (tables rondes 10 pers), scène temporaire, sono lourde, lustres suspendus"}
+  },
+  "Terrain de football":{
+    low:{val:350,desc:"Pelouse naturelle, tribunes légères démontables, usage amateur"},
+    mid:{val:400,desc:"Pelouse synthétique, tribunes métalliques fixes légères, éclairage standard"},
+    high:{val:500,desc:"Pelouse hybride professionnelle, tribunes béton, éclairage LED haute puissance, écrans géants"}
+  },
+  "Terrain de tennis":{
+    low:{val:250,desc:"Surface résine extérieure, aucune tribune, usage loisir"},
+    mid:{val:300,desc:"Surface béton poreux / gazon synthétique, petites tribunes métalliques"},
+    high:{val:400,desc:"Surface dur indoor, tribunes fixes, éclairage compétition, gradins couverts"}
+  },
+  "Terrain de basket":{
+    low:{val:300,desc:"Parquet sportif sur dalle légère, paniers mobiles, sans tribune"},
+    mid:{val:400,desc:"Parquet homologué FIBA, paniers fixes, petites tribunes rétractables"},
+    high:{val:500,desc:"Salle multisports professionnelle, gradins rétractables lourds, tableau d'affichage électronique"}
+  },
+  "Piscine (plage et bassin)":{
+    low:{val:350,desc:"Bassin de loisir, plage carrelage standard, peu d'équipements"},
+    mid:{val:450,desc:"Bassin sportif 25m, plage antidérapante, plongeoirs légers"},
+    high:{val:500,desc:"Bassin olympique 50m, plongeoirs fixes lourds, gradins couverts, équipement compétition"}
+  },
+  "Gymnase / Salle multisports":{
+    low:{val:350,desc:"Dalle BA 20cm, parquet sportif mobile, aucun gradin, usage scolaire"},
+    mid:{val:450,desc:"Dalle BA 25cm, parquet fixe, gradins rétractables légers, panneaux sportifs"},
+    high:{val:500,desc:"Dalle renforcée, parquet homologué, gradins rétractables lourds, éclairage TV, estrades"}
+  },
+  "Ateliers sans grue":{
+    low:{val:400,desc:"Atelier léger (assemblage, bureautique), sol PVC, peu de machines"},
+    mid:{val:500,desc:"Atelier mécanique standard, machines-outils moyennes, établis lourds"},
+    high:{val:600,desc:"Atelier avec machines lourdes (tour, fraiseuse), fosses d'inspection, chutes de charges"}
+  },
+  "Ateliers avec grue légère":{
+    low:{val:500,desc:"Grue légère < 1t, atelier montage, charges ponctuelles modérées"},
+    mid:{val:600,desc:"Grue 1-3t, atelier mécanique lourd, stockage intermédiaire"},
+    high:{val:800,desc:"Grue 3-5t, atelier industriel dense, chutes de charges fréquentes"}
+  },
+  "Entrepôts logistiques":{
+    low:{val:400,desc:"Rayonnages légers, marchandises légères (textile, papeterie), chariots élévateurs petits"},
+    mid:{val:600,desc:"Rayonnages métalliques standards, marchandises mixtes, chariots 1.5t"},
+    high:{val:1000,desc:"Racks haute densité, palettes lourdes, chariots élévateurs 3t+, mezzanines"}
+  },
+  "Salles des machines":{
+    low:{val:600,desc:"Petites machines auxiliaires, groupes électrogènes légers"},
+    mid:{val:800,desc:"Machines principales moyennes, compresseurs, armoires électriques"},
+    high:{val:1000,desc:"Machines lourdes (presse, injecteur), chaudières industrielles, transformateurs"}
+  },
+  "Supermarché (allées)":{
+    low:{val:400,desc:"Rayonnages bas, produits légers (textile, papeterie), allées larges"},
+    mid:{val:500,desc:"Rayonnages standards, mix produits, chariots clients"},
+    high:{val:600,desc:"Rayonnages hauts densifiés, produits lourds (boissons, lessive), chariots élévateurs"}
+  },
+  "Grande surface":{
+    low:{val:400,desc:"Surface de vente avec présentoirs légers, vêtements, chaussures"},
+    mid:{val:500,desc:"Mix meubles + électroménager léger, allées pour chariots élévateurs"},
+    high:{val:600,desc:"Électroménager lourd, meubles massifs, stockage en hauteur, chariots fréquents"}
+  },
+  "Parking voitures lourdes":{
+    low:{val:350,desc:"Camionnettes, fourgons légers, utilitaires < 3.5t"},
+    mid:{val:500,desc:"Poids lourds stationnement occasionnel, bus, camions bennes"},
+    high:{val:600,desc:"Circulation poids lourds régulière, camions frigo, semi-remorques"}
+  },
+  "Gare routière (quais)":{
+    low:{val:400,desc:"Quai couvert léger, passage voyageurs, abris bus standards"},
+    mid:{val:500,desc:"Quai béton, abris vitrés, affichage électronique, bancs fixes"},
+    high:{val:600,desc:"Quai renforcé, circulation bus sur quai, équipements lourds, kiosques intégrés"}
+  },
+  "Aéroport (hall)":{
+    low:{val:350,desc:"Hall d'embarquement léger, sièges standards, comptoirs mobiles"},
+    mid:{val:400,desc:"Hall principal, comptoirs fixes, tapis bagages, boutiques légères"},
+    high:{val:500,desc:"Hall international, tapis bagages lourds, boutiques duty-free, kiosques restaurants"}
+  },
+  "Chambres d'hôtel":{
+    low:{val:150,desc:"Chambre standard, lit double, bureau léger, placard intégré"},
+    mid:{val:200,desc:"Chambre supérieure, lit king-size, mobilier supplémentaire, minibar"},
+    high:{val:250,desc:"Suite, mobilier lourd, canapé-lit, baignoire îlot, dressing walk-in"}
+  },
+  "Hall d'hôtel":{
+    low:{val:300,desc:"Hall de petite taille, réception légère, canapés standards"},
+    mid:{val:400,desc:"Hall moyen, réception fixe, éclairage architectural, décoration"},
+    high:{val:500,desc:"Hall grand luxe, lustres lourds, réception marbre, fontaines, sculptures"}
+  },
+  "Spa / Hammam":{
+    low:{val:250,desc:"Espace détente léger, chaises longues pliantes, petit jacuzzi"},
+    mid:{val:300,desc:"Hammam traditionnel, bancs carrelés, douches multiples, faux-plafond technique"},
+    high:{val:400,desc:"Spa complet (piscine intérieure, sauna, hammam, bancs béton, équipement technique lourd)"}
+  },
+  "Mosquée / Église (assis)":{
+    low:{val:250,desc:"Petite salle, chaises pliantes, tapis légers, sans ornementation lourde"},
+    mid:{val:350,desc:"Salle moyenne, bancs bois fixes, tapis épais, lustres moyens"},
+    high:{val:400,desc:"Grande salle, bancs béton/bois massif, lustres lourds, colonnes ornementales"}
+  },
+  "Mosquée / Église (debout)":{
+    low:{val:350,desc:"Salle de prière simple, tapis, sans mobilier fixe"},
+    mid:{val:450,desc:"Grande salle, tapis épais, colonnes porteuses, lustres"},
+    high:{val:500,desc:"Grande mosquée/église historique, marbre, colonnes massives, lustres cristal, dôme lourd"}
+  },
+  "Salle de prière":{
+    low:{val:300,desc:"Petite salle communautaire, tapis, sans estrade fixe"},
+    mid:{val:400,desc:"Salle moyenne, estrade bois, bibliothèque intégrée, éclairage architectural"},
+    high:{val:500,desc:"Grande salle, estrade béton, rayonnages livres lourds, climatisation centrale, faux-plafond technique"}
+  },
+  "Cinéma (salle de projection)":{
+    low:{val:300,desc:"Petite salle < 50 places, sièges standards, écran toile, projecteur portable"},
+    mid:{val:350,desc:"Salle moyenne 100-200 places, sièges fixes rembourrés, écran fixe, son 5.1"},
+    high:{val:450,desc:"Salle IMAX/4DX, gradins béton, écran géant lourd, équipement son lourd, sièges motorisés"}
+  },
+  "Salle de concert":{
+    low:{val:400,desc:"Salle polyvalente, estrade mobile, gradins amovibles, sono portable"},
+    mid:{val:500,desc:"Salle dédiée, estrade fixe bois, gradins fixes légers, équipement son fixe"},
+    high:{val:600,desc:"Salle symphonique, estrade béton, gradins béton, orgue monumental, équipement lourd"}
+  },
+  "Musée (salles d'exposition)":{
+    low:{val:250,desc:"Exposition temporaire légère, photos, textes, vitrines légères"},
+    mid:{val:350,desc:"Exposition mixte, sculptures moyennes, vitrines standards, éclairage ciblé"},
+    high:{val:500,desc:"Exposition permanente, sculptures lourdes, vitrines sécurisées lourdes, climatisation précise"}
+  },
+  "Archives (locaux de stockage)":{
+    low:{val:300,desc:"Archives récentes, étagères métalliques légères, documents numériques + papier"},
+    mid:{val:400,desc:"Archives standards, rayonnages métalliques, documents papier densifiés"},
+    high:{val:500,desc:"Archives historiques, rayonnages lourds, boîtes métalliques, climatisation constante, planchers renforcés"}
+  }
+};
+
+function getScenarioHTML(r){
+  const s=scenarios[r.name];
+  if(!s||r.qMin===r.qMax)return'';
+  const isLow=Math.abs(r.q-s.low.val)<20;
+  const isMid=Math.abs(r.q-s.mid.val)<20;
+  const isHigh=Math.abs(r.q-s.high.val)<20;
+  return `
+  <div class="info-section">
+    <h4>📊 Scénarios d'aménagement — Quand choisir quelle valeur ?</h4>
+    <table class="scenario-table">
+      <thead><tr><th>Scénario</th><th>Valeur Q</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr class="${isLow?'active-row':''}"><td>🟢 Léger / Minimal</td><td>${s.low.val} kg/m²</td><td>${s.low.desc}</td></tr>
+        <tr class="${isMid?'active-row':''}"><td>🟡 Standard / Moyen</td><td>${s.mid.val} kg/m²</td><td>${s.mid.desc}</td></tr>
+        <tr class="${isHigh?'active-row':''}"><td>🔴 Lourd / Dense</td><td>${s.high.val} kg/m²</td><td>${s.high.desc}</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:10px;color:var(--dash-text-ter);margin-top:8px;font-style:italic">💡 Modifiez Q ci-dessus pour voir le scénario correspondant se surligner.</p>
+  </div>`;
+}
+
+// ==================== DONNÉES COMPLÈTES — 14 CATÉGORIES ====================
+const rooms=[
+  // ========== HABITATION ==========
+  {cat:"Habitation",name:"Logements (y compris combles aménageables)",q:150,g:300,qMin:150,qMax:150,gMin:300,gMax:300,desc:"Dalle alvéolée 16+4, carrelage, cloisons légères BA13, faux-plafond BA13",explanation:"Valeur fixe NF P 06-001. Usage domestique standard sans surcharge particulière."},
+  {cat:"Habitation",name:"Balcons (habitation)",q:150,g:300,qMin:150,qMax:150,gMin:300,gMax:300,desc:"Dalle alvéolée 16+4, carrelage extérieur",explanation:"Valeur fixe. Identique au logement car usage résidentiel."},
+  {cat:"Habitation",name:"Escaliers / Halls d'entrée",q:350,g:400,qMin:350,qMax:350,gMin:400,gMax:400,desc:"Marches BA 20 cm, revêtement antidérapant, garde-corps métallique",explanation:"Valeur fixe. Circulation commune avec passage fréquent."},
+  {cat:"Habitation",name:"Combles non aménageables",q:250,g:250,qMin:250,qMax:250,gMin:250,gMax:250,desc:"Plancher bois traditionnel ou hourdis léger, isolation légère",explanation:"Valeur fixe. Stockage occasionnel uniquement."},
+  {cat:"Habitation",name:"Greniers proprement dits",q:100,g:150,qMin:100,qMax:100,gMin:150,gMax:150,desc:"Plancher bois traditionnel, isolation légère",explanation:"Valeur fixe. Accès limité, stockage léger."},
+  {cat:"Habitation",name:"Étages des caves",q:250,g:400,qMin:250,qMax:250,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, chape, carrelage",explanation:"Valeur fixe. Usage technique / stockage léger."},
+
+  // ========== BUREAUX ==========
+  {cat:"Bureaux",name:"Bureaux proprement dits",q:250,g:400,qMin:250,qMax:250,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, carrelage, cloisons légères BA13, faux-plafond BA13",explanation:"Valeur fixe. NF P 06-001 catégorie B1."},
+  {cat:"Bureaux",name:"Bureaux paysagers",q:250,g:350,qMin:250,qMax:250,gMin:350,gMax:350,desc:"Dalle alvéolée 16+4, parquet, peu de cloisons",explanation:"Valeur fixe. Open-space, moins de cloisons donc G réduit."},
+  {cat:"Bureaux",name:"Escaliers / Halls — bureaux",q:350,g:400,qMin:350,qMax:350,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage antidérapant",explanation:"Valeur fixe. Circulation commune."},
+  {cat:"Bureaux",name:"Administration",q:250,g:400,qMin:250,qMax:250,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, carrelage, cloisons légères, faux-plafond",explanation:"Valeur fixe. Identique aux bureaux standard."},
+
+  // ========== SCOLAIRE ==========
+  {cat:"Scolaire",name:"Dépôts de cuisines collectives",q:600,g:500,qMin:600,qMax:600,gMin:500,gMax:500,desc:"Dalle pleine BA 25 cm, carrelage industriel, enduit lourd",explanation:"Valeur fixe. Stockage alimentaire lourd (denrées en vrac)."},
+  {cat:"Scolaire",name:"Salles avec assistance debout",q:400,g:450,qMin:400,qMax:400,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, carrelage, cloisons mixtes",explanation:"Valeur fixe. Densité de personnes debout élevée."},
+  {cat:"Scolaire",name:"Cuisines collectives",q:500,g:500,qMin:500,qMax:500,gMin:500,gMax:500,desc:"Dalle pleine BA 20 cm, carrelage antidérapant, revêtement résistant",explanation:"Valeur fixe. Équipements professionnels lourds."},
+  {cat:"Scolaire",name:"Salles polyvalentes avec sièges",q:400,g:400,qMin:400,qMax:400,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, parquet ou carrelage, cloisons légères",explanation:"Valeur fixe. Assemblée avec sièges fixes."},
+  {cat:"Scolaire",name:"Amphithéâtres / Cantines / Réfectoires",q:350,g:400,qMin:350,qMax:350,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage, gradins béton ou tables fixes",explanation:"Valeur fixe. Restauration collective assise."},
+  {cat:"Scolaire",name:"Salles de classe / Laboratoires / Ateliers",q:250,g:350,qMin:250,qMax:250,gMin:350,gMax:350,desc:"Dalle alvéolée 16+4, carrelage ou PVC, cloisons légères",explanation:"Valeur fixe. Enseignement standard."},
+  {cat:"Scolaire",name:"Hébergement individuel",q:150,g:300,qMin:150,qMax:150,gMin:300,gMax:300,desc:"Dalle alvéolée 16+4, parquet, cloisons légères",explanation:"Valeur fixe. Équivalent logement."},
+
+  // ========== HOSPITALIER ==========
+  {cat:"Hospitalier",name:"Chambres hôpital",q:150,g:450,qMin:150,qMax:150,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, PVC sanitaire, cloisons mixtes",explanation:"Valeur fixe. Q faible (lit + mobilier léger), G élevé (cloisons sanitaires + faux-plafond technique)."},
+  {cat:"Hospitalier",name:"Circulations internes hôpital",q:250,g:400,qMin:250,qMax:250,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage antidérapant",explanation:"Valeur fixe. Circulation médicalisée."},
+  {cat:"Hospitalier",name:"Salles d'opérations / Plâtres",q:350,g:550,qMin:350,qMax:350,gMin:550,gMax:550,desc:"Dalle pleine BA 25 cm, carrelage sanitaire, faux-plafond technique",explanation:"Valeur fixe. Équipements médicaux lourds + faux-plafond technique complexe."},
+  {cat:"Hospitalier",name:"Autres services hôpital",q:250,g:400,qMin:250,qMax:250,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, carrelage ou PVC",explanation:"Valeur fixe. Services généraux."},
+  {cat:"Hospitalier",name:"Halls hôpital",q:400,g:450,qMin:400,qMax:400,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, carrelage, faux-plafond",explanation:"Valeur fixe. Hall d'accueil public."},
+  {cat:"Hospitalier",name:"Circulations générales hôpital",q:400,g:400,qMin:400,qMax:400,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage antidérapant",explanation:"Valeur fixe. Circulation principale."},
+  {cat:"Hospitalier",name:"Bureaux hôpital",q:400,g:400,qMin:400,qMax:400,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, carrelage, cloisons légères",explanation:"Valeur fixe. Équivalent bureaux."},
+  {cat:"Hospitalier",name:"Postes de soins",q:250,g:400,qMin:250,qMax:250,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, revêtement PVC",explanation:"Valeur fixe. Poste infirmier standard."},
+  {cat:"Hospitalier",name:"Salles de cours hôpital",q:250,g:350,qMin:250,qMax:250,gMin:350,gMax:350,desc:"Dalle alvéolée 16+4, carrelage ou PVC",explanation:"Valeur fixe. Équivalent salle de classe."},
+  {cat:"Hospitalier",name:"Salles de réunion > 100 m²",q:400,g:400,qMin:400,qMax:400,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, carrelage, cloisons légères",explanation:"Valeur fixe. Grande salle de réunion."},
+  {cat:"Hospitalier",name:"Salles de réunion < 50 m²",q:250,g:350,qMin:250,qMax:250,gMin:350,gMax:350,desc:"Dalle alvéolée 16+4, carrelage, cloisons légères",explanation:"Valeur fixe. Petite salle de réunion."},
+  {cat:"Hospitalier",name:"Sanitaires hôpital",q:250,g:400,qMin:250,qMax:250,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage sanitaire",explanation:"Valeur fixe. Sanitaire médicalisé."},
+  {cat:"Hospitalier",name:"Buanderies",q:150,g:350,qMin:150,qMax:150,gMin:350,gMax:350,desc:"Dalle pleine BA 20 cm, carrelage industriel",explanation:"Valeur fixe. Équipements de blanchisserie."},
+  {cat:"Hospitalier",name:"Réserves / Dépôts / Stockage",q:350,g:500,qMin:350,qMax:350,gMin:500,gMax:500,desc:"Dalle pleine BA 25 cm, carrelage industriel",explanation:"Valeur fixe. Stockage médical."},
+  {cat:"Hospitalier",name:"Stockage lourd (350-600)",q:475,g:550,qMin:350,qMax:600,gMin:550,gMax:550,desc:"Dalle pleine BA 25 cm, carrelage industriel, renforts",explanation:"Q VARIABLE (350 à 600). À ajuster selon la densité de stockage."},
+
+  // ========== HÔTELLERIE ==========
+  {cat:"Hôtellerie",name:"Chambres d'hôtel",q:200,g:350,qMin:150,qMax:250,gMin:350,gMax:350,desc:"Dalle alvéolée 16+4, moquette ou parquet, mobilier hôtelier",explanation:"Q VARIABLE (150 à 250). 150 = standard, 250 = suite luxe avec mobilier lourd."},
+  {cat:"Hôtellerie",name:"Hall d'hôtel",q:400,g:450,qMin:300,qMax:500,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, marbre ou granit, réception, lustres",explanation:"Q VARIABLE (300 à 500). 300 = hall modeste, 500 = grand hall luxe avec lustres lourds."},
+  {cat:"Hôtellerie",name:"Restaurant d'hôtel",q:375,g:400,qMin:250,qMax:500,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage, faux-plafond — équivalent restaurant",explanation:"Q VARIABLE (250 à 500). Identique au restaurant standard."},
+  {cat:"Hôtellerie",name:"Salles de conférence hôtel",q:400,g:400,qMin:400,qMax:400,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, carrelage, cloisons légères, équipement AV",explanation:"Valeur fixe. Équivalent salle de réunion > 100m²."},
+  {cat:"Hôtellerie",name:"Spa / Hammam",q:300,g:500,qMin:250,qMax:400,gMin:500,gMax:500,desc:"Dalle pleine BA 20 cm, carrelage sanitaire, faux-plafond technique humidité",explanation:"Q VARIABLE (250 à 400). 250 = espace détente léger, 400 = spa complet avec piscine intérieure."},
+
+  // ========== RESTAURATION ==========
+  {cat:"Restauration",name:"Restaurant (salle principale)",q:375,g:400,qMin:250,qMax:500,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage, faux-plafond — places assises < 100",explanation:"Q VARIABLE (250 à 500). Voir tableau des scénarios ci-dessous."},
+  {cat:"Restauration",name:"Bar Lounge",q:325,g:400,qMin:250,qMax:400,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, carrelage ou parquet, cloisons légères",explanation:"Q VARIABLE (250 à 400). Voir tableau des scénarios ci-dessous."},
+  {cat:"Restauration",name:"Cuisine professionnelle",q:500,g:500,qMin:500,qMax:500,gMin:500,gMax:500,desc:"Dalle pleine BA 20 cm, carrelage antidérapant",explanation:"Valeur fixe. Équipements professionnels lourds. NF P 06-001 impose 500 kg/m² minimum."},
+  {cat:"Restauration",name:"Dépôt de cuisine",q:600,g:500,qMin:600,qMax:600,gMin:500,gMax:500,desc:"Dalle pleine BA 25 cm, carrelage industriel",explanation:"Valeur fixe. Stockage denrées en vrac."},
+
+  // ========== COMMERCE ==========
+  {cat:"Commerce",name:"Supermarché (allées)",q:500,g:450,qMin:400,qMax:600,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, carrelage industriel, rayonnages métalliques",explanation:"Q VARIABLE (400 à 600). Voir tableau des scénarios ci-dessous."},
+  {cat:"Commerce",name:"Grande surface",q:500,g:400,qMin:400,qMax:600,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4 ou pleine BA 20 cm, carrelage, allées larges",explanation:"Q VARIABLE (400 à 600). Voir tableau des scénarios ci-dessous."},
+  {cat:"Commerce",name:"Magasin de meubles",q:500,g:450,qMin:500,qMax:500,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, carrelage, faux-plafond",explanation:"Valeur fixe. Marchandises lourdes (canapés, armoires)."},
+  {cat:"Commerce",name:"Boutiques et annexes",q:500,g:450,qMin:500,qMax:500,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, carrelage, faux-plafond",explanation:"Valeur fixe. Commerce avec rayonnages et marchandises."},
+  {cat:"Commerce",name:"Galerie marchande",q:400,g:400,qMin:400,qMax:400,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, carrelage, cloisons vitrées",explanation:"Valeur fixe. Circulation commerciale couverte."},
+
+  // ========== LOISIRS ==========
+  {cat:"Loisirs",name:"Golf Lounge",q:325,g:400,qMin:250,qMax:400,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, parquet ou moquette, cloisons légères",explanation:"Q VARIABLE (250 à 400). Voir tableau des scénarios ci-dessous."},
+  {cat:"Loisirs",name:"Salle de conférence",q:425,g:450,qMin:400,qMax:450,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, moquette ou parquet, gradins ou sièges fixes",explanation:"Q VARIABLE (400 à 450). Voir tableau des scénarios ci-dessous."},
+  {cat:"Loisirs",name:"Salle de projection < 50 m²",q:350,g:350,qMin:350,qMax:350,gMin:350,gMax:350,desc:"Dalle alvéolée 16+4, moquette, faux-plafond acoustique",explanation:"Valeur fixe. Petite salle de projection."},
+  {cat:"Loisirs",name:"Théâtre / Conférence (assis)",q:425,g:450,qMin:400,qMax:450,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, moquette ou parquet, gradins",explanation:"Q VARIABLE (400 à 450). Voir tableau des scénarios ci-dessous."},
+  {cat:"Loisirs",name:"Spectacles / Sport (debout)",q:600,g:500,qMin:600,qMax:600,gMin:500,gMax:500,desc:"Dalle pleine BA 25 cm, carrelage ou béton brut, gradins",explanation:"Valeur fixe. Foule debout dense (NF P 06-001 : 500 kg/m² minimum, souvent majoré à 600)."},
+  {cat:"Loisirs",name:"Lieux de culte (assistance debout)",q:500,g:450,qMin:500,qMax:500,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, carrelage, bancs béton",explanation:"Valeur fixe. Assistance debout ou à genoux, bancs fixes."},
+
+  // ========== SPECTACLES ==========
+  {cat:"Spectacles",name:"Cinéma (salle de projection)",q:375,g:400,qMin:300,qMax:450,gMin:400,gMax:400,desc:"Dalle alvéolée ou pleine BA 20 cm, moquette, gradins, écran",explanation:"Q VARIABLE (300 à 450). Voir tableau des scénarios ci-dessous."},
+  {cat:"Spectacles",name:"Salle de concert",q:500,g:450,qMin:400,qMax:600,gMin:450,gMax:450,desc:"Dalle pleine BA 25 cm, moquette ou parquet, estrade, gradins",explanation:"Q VARIABLE (400 à 600). Voir tableau des scénarios ci-dessous."},
+  {cat:"Spectacles",name:"Théâtre (scène)",q:500,g:500,qMin:500,qMax:500,gMin:500,gMax:500,desc:"Dalle pleine BA 25 cm, parquet scène, grille technique, cintres",explanation:"Valeur fixe. Scène avec équipement technique lourd (projecteurs, décors)."},
+  {cat:"Spectacles",name:"Théâtre (salle publique)",q:400,g:450,qMin:400,qMax:400,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, moquette, gradins fixes, balcon",explanation:"Valeur fixe. Salle avec gradins et balcon."},
+  {cat:"Spectacles",name:"Salle de répétition",q:350,g:400,qMin:350,qMax:350,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, parquet ou moquette, miroirs, barres",explanation:"Valeur fixe. Danse / théâtre répétition."},
+
+  // ========== SPORT ==========
+  {cat:"Sport",name:"Gymnase / Salle multisports",q:450,g:400,qMin:350,qMax:500,gMin:400,gMax:400,desc:"Dalle BA 20-25 cm, parquet sportif, gradins rétractables possibles",explanation:"Q VARIABLE (350 à 500). Voir tableau des scénarios ci-dessous."},
+  {cat:"Sport",name:"Terrain de football",q:400,g:350,qMin:350,qMax:500,gMin:350,gMax:350,desc:"Pelouse naturelle ou synthétique, tribunes, éclairage",explanation:"Q VARIABLE (350 à 500). Voir tableau des scénarios ci-dessous."},
+  {cat:"Sport",name:"Terrain de tennis",q:300,g:300,qMin:250,qMax:400,gMin:300,gMax:300,desc:"Surface résine / béton poreux / gazon synthétique, tribunes légères",explanation:"Q VARIABLE (250 à 400). Voir tableau des scénarios ci-dessous."},
+  {cat:"Sport",name:"Terrain de basket",q:400,g:400,qMin:300,qMax:500,gMin:400,gMax:400,desc:"Parquet sportif sur dalle BA, paniers fixes ou mobiles, gradins",explanation:"Q VARIABLE (300 à 500). Voir tableau des scénarios ci-dessous."},
+  {cat:"Sport",name:"Piscine (plage et bassin)",q:450,g:500,qMin:350,qMax:500,gMin:500,gMax:500,desc:"Dalle pleine BA 25 cm, carrelage antidérapant, équipement filtration",explanation:"Q VARIABLE (350 à 500). Voir tableau des scénarios ci-dessous. G fixe à 500 (équipements techniques lourds)."},
+  {cat:"Sport",name:"Tribunes (assis)",q:400,g:450,qMin:400,qMax:400,gMin:450,gMax:450,desc:"Gradins béton ou métalliques fixes, sièges individuels",explanation:"Valeur fixe. Spectateurs assis."},
+  {cat:"Sport",name:"Tribunes (debout)",q:600,g:500,qMin:600,qMax:600,gMin:500,gMax:500,desc:"Gradins béton, barres d'appui, densité élevée",explanation:"Valeur fixe. Supporters debout denses."},
+  {cat:"Sport",name:"Mur d'escalade",q:350,g:400,qMin:350,qMax:350,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm renforcée, structure mur métallique, matelas",explanation:"Valeur fixe. Structure d'escalade + chutes."},
+
+  // ========== INDUSTRIEL ==========
+  {cat:"Industriel",name:"Ateliers sans grue",q:500,g:400,qMin:400,qMax:600,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage industriel, établis, machines-outils",explanation:"Q VARIABLE (400 à 600). Voir tableau des scénarios ci-dessous."},
+  {cat:"Industriel",name:"Ateliers avec grue légère",q:600,g:500,qMin:500,qMax:800,gMin:500,gMax:500,desc:"Dalle pleine BA 25 cm renforcée, rails de grue, fosses d'inspection",explanation:"Q VARIABLE (500 à 800). Voir tableau des scénarios ci-dessous."},
+  {cat:"Industriel",name:"Entrepôts logistiques",q:600,g:400,qMin:400,qMax:1000,gMin:400,gMax:400,desc:"Dalle pleine BA 25 cm, carrelage industriel, racks haute densité",explanation:"Q VARIABLE (400 à 1000). Voir tableau des scénarios ci-dessous."},
+  {cat:"Industriel",name:"Salles des machines",q:800,g:600,qMin:600,qMax:1000,gMin:600,gMax:600,desc:"Dalle pleine BA 30 cm renforcée, ancrages machines, caniveaux",explanation:"Q VARIABLE (600 à 1000). Voir tableau des scénarios ci-dessous."},
+  {cat:"Industriel",name:"Laboratoires industriels",q:350,g:400,qMin:350,qMax:350,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, carrelage ou résine, paillasses lourdes",explanation:"Valeur fixe. Équivalent laboratoire scolaire avec paillasses."},
+
+  // ========== TRANSPORT ==========
+  {cat:"Transport",name:"Parking voitures légères",q:250,g:400,qMin:250,qMax:250,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, béton brut ou peinture",explanation:"Valeur fixe. Véhicules particuliers (NF P 06-001)."},
+  {cat:"Transport",name:"Parking voitures lourdes",q:500,g:500,qMin:350,qMax:600,gMin:500,gMax:500,desc:"Dalle pleine BA 25 cm, béton brut, pente, caniveaux",explanation:"Q VARIABLE (350 à 600). Voir tableau des scénarios ci-dessous."},
+  {cat:"Transport",name:"Gare routière (quais)",q:500,g:450,qMin:400,qMax:600,gMin:450,gMax:450,desc:"Dalle pleine BA 25 cm, carrelage antidérapant, abris vitrés",explanation:"Q VARIABLE (400 à 600). Voir tableau des scénarios ci-dessous."},
+  {cat:"Transport",name:"Aéroport (hall)",q:400,g:450,qMin:350,qMax:500,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, marbre ou granit, comptoirs, tapis bagages",explanation:"Q VARIABLE (350 à 500). Voir tableau des scénarios ci-dessous."},
+  {cat:"Transport",name:"Tunnel piéton",q:500,g:400,qMin:500,qMax:500,gMin:400,gMax:400,desc:"Dalle pleine BA 25 cm, carrelage antidérapant, éclairage permanent",explanation:"Valeur fixe. Foule dense en mouvement continu."},
+
+  // ========== RELIGIEUX ==========
+  {cat:"Religieux",name:"Mosquée / Église (assis)",q:350,g:400,qMin:250,qMax:400,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage, bancs bois ou chaises",explanation:"Q VARIABLE (250 à 400). Voir tableau des scénarios ci-dessous."},
+  {cat:"Religieux",name:"Mosquée / Église (debout)",q:450,g:450,qMin:350,qMax:500,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, carrelage, tapis épais, colonnes",explanation:"Q VARIABLE (350 à 500). Voir tableau des scénarios ci-dessous."},
+  {cat:"Religieux",name:"Salle de prière",q:400,g:400,qMin:300,qMax:500,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4 ou pleine BA 20 cm, carrelage, estrade",explanation:"Q VARIABLE (300 à 500). Voir tableau des scénarios ci-dessous."},
+  {cat:"Religieux",name:"Salle de wudu / Ablutions",q:250,g:400,qMin:250,qMax:250,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage sanitaire, caniveaux",explanation:"Valeur fixe. Équivalent sanitaire avec eau permanente."},
+
+  // ========== AUTRES ==========
+  {cat:"Autres",name:"Crèche / Chambres / Salles de jeux",q:150,g:300,qMin:150,qMax:150,gMin:300,gMax:300,desc:"Dalle alvéolée 16+4, parquet ou PVC, cloisons légères",explanation:"Valeur fixe. Équivalent habitation / hébergement."},
+  {cat:"Autres",name:"Dortoirs collectifs",q:250,g:300,qMin:250,qMax:250,gMin:300,gMax:300,desc:"Dalle alvéolée 16+4, parquet, cloisons légères",explanation:"Valeur fixe. Lits superposés, mobilier collectif."},
+  {cat:"Autres",name:"Salles de réunion tables de travail",q:250,g:350,qMin:250,qMax:250,gMin:350,gMax:350,desc:"Dalle alvéolée 16+4, carrelage ou parquet, cloisons légères",explanation:"Valeur fixe. Réunion standard."},
+  {cat:"Autres",name:"Halles diverses (gare, etc.)",q:400,g:450,qMin:400,qMax:400,gMin:450,gMax:450,desc:"Dalle pleine BA 20 cm, carrelage antidérapant",explanation:"Valeur fixe. Hall public à forte circulation."},
+  {cat:"Autres",name:"Salles d'exposition < 50 m²",q:250,g:350,qMin:250,qMax:250,gMin:350,gMax:350,desc:"Dalle alvéolée 16+4, carrelage ou parquet",explanation:"Valeur fixe. Petite exposition."},
+  {cat:"Autres",name:"Salles d'exposition ≥ 50 m²",q:350,g:400,qMin:350,qMax:350,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage, faux-plafond technique",explanation:"Valeur fixe. Grande exposition."},
+  {cat:"Autres",name:"Musée (salles d'exposition)",q:350,g:400,qMin:250,qMax:500,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage ou parquet, éclairage ciblé, climatisation",explanation:"Q VARIABLE (250 à 500). Voir tableau des scénarios ci-dessous."},
+  {cat:"Autres",name:"Archives (locaux de stockage)",q:400,g:500,qMin:300,qMax:500,gMin:500,gMax:500,desc:"Dalle pleine BA 25 cm, carrelage industriel, rayonnages métalliques",explanation:"Q VARIABLE (300 à 500). Voir tableau des scénarios ci-dessous."},
+  {cat:"Autres",name:"Cuisines collectivités",q:250,g:400,qMin:250,qMax:250,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, carrelage antidérapant",explanation:"Valeur fixe. Cuisine légère / réchauffage."},
+  {cat:"Autres",name:"Bibliothèques (salles de lecture)",q:400,g:400,qMin:400,qMax:400,gMin:400,gMax:400,desc:"Dalle alvéolée 16+4, parquet, rayonnages intégrés",explanation:"Valeur fixe. Rayonnages + tables de lecture."},
+  {cat:"Autres",name:"Garages / Parkings voitures légères",q:250,g:400,qMin:250,qMax:250,gMin:400,gMax:400,desc:"Dalle pleine BA 20 cm, béton brut ou peinture",explanation:"Valeur fixe. Véhicules particuliers."},
+  {cat:"Autres",name:"Balcons (autres)",q:350,g:300,qMin:350,qMax:350,gMin:300,gMax:300,desc:"Dalle alvéolée 16+4, carrelage extérieur",explanation:"Valeur fixe. Balcon non résidentiel (commerce, bureaux)."},
+  {cat:"Autres",name:"Circulations et escaliers",q:250,g:350,qMin:250,qMax:250,gMin:350,gMax:350,desc:"Dalle pleine BA 20 cm, carrelage antidérapant",explanation:"Valeur fixe. Circulation standard."},
+  {cat:"Autres",name:"Halls de réception",q:400,g:500,qMin:250,qMax:500,gMin:500,gMax:500,desc:"Dalle pleine BA 20 cm, marbre ou granit, faux-plafond, mobilier événementiel possible",explanation:"Q VARIABLE (250 à 500). Voir tableau des scénarios ci-dessous."}
+];
+
+// ==================== RENDU ====================
+function renderRooms(){
+  const list=document.getElementById('roomList');
+  list.innerHTML='';
+  let filtered;
+  const rawSearch=document.getElementById('searchInput').value.trim();
+
+  if(rawSearch){
+    const terms=expandSearchTerms(rawSearch);
+    const scored=rooms.map((r,idx)=>({room:r,idx,score:smartSearch(r,terms)}))
+      .filter(item=>item.score>0)
+      .sort((a,b)=>b.score-a.score);
+    filtered=scored.map(item=>item.room);
+    currentSearch=rawSearch;
+  }else{
+    filtered=rooms.filter(r=>currentCat==='all'||r.cat===r.cat && (currentCat==='all'||r.cat===currentCat));
+    currentSearch='';
+  }
+
+  document.getElementById('countBadge').textContent=filtered.length+' résultat'+(filtered.length>1?'s':'');
+
+  if(filtered.length===0){
+    list.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--dash-text-ter);font-size:13px">
+      <div style="font-size:32px;margin-bottom:10px">🔍</div>
+      Aucun résultat pour "<strong>${rawSearch}</strong>"<br>
+      <span style="font-size:11px">Essayez : hospital, cuisine, 500, terrain, foot...</span>
+    </div>`;
+    return;
+  }
+
+  const terms=currentSearch?expandSearchTerms(currentSearch):[];
+
+  filtered.forEach(r=>{
+    const realIdx=rooms.indexOf(r);
+    const card=document.createElement('button');
+    card.className='room-card'+(selectedId===realIdx?' selected':'');
+    card.onclick=()=>showDetail(realIdx);
+
+    const nameHtml=highlightText(r.name,terms);
+    const qTag=r.qMin!==r.qMax
+      ?`<span class="tag" style="background:rgba(59,130,246,.12);color:var(--dash-q-color)">Q: ${r.qMin}-${r.qMax}</span>`
+      :`<span class="tag" style="background:rgba(59,130,246,.12);color:var(--dash-q-color)">Q: ${r.q}</span>`;
+    const gTag=`<span class="tag" style="background:rgba(16,185,129,.12);color:var(--dash-g-color)">G: ${r.g}</span>`;
+
+    let matchPreview='';
+    if(terms.length){
+      const hay=normalizeText(r.name+r.desc+r.explanation+r.cat);
+      const matchedField=terms.find(t=>hay.includes(t));
+      if(matchedField){
+        const fullText=r.name+' | '+r.desc+' | '+r.explanation;
+        const idx=normalizeText(fullText).indexOf(matchedField);
+        if(idx>=0){
+          const start=Math.max(0,idx-25);
+          const end=Math.min(fullText.length,idx+matchedField.length+25);
+          let snippet=fullText.substring(start,end);
+          if(start>0)snippet='...'+snippet;
+          if(end<fullText.length)snippet=snippet+'...';
+          matchPreview=`<div class="match-preview">${highlightText(snippet,terms)}</div>`;
+        }
+      }
+    }
+
+    card.innerHTML=`<div class="room-name">${nameHtml}</div><div class="room-tags"><span class="cat-tag">${r.cat}</span>${qTag}${gTag}</div>${matchPreview}`;
+    list.appendChild(card);
+  });
+}
+
+function filterCat(cat){
+  currentCat=cat;
+  document.getElementById('searchInput').value='';
+  currentSearch='';
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));
+  renderRooms();
+}
+
+function doSearch(){
+  renderRooms();
+}
+
+function buildDetailHTML(r){
+  const isVariableQ=r.qMin!==r.qMax;
+  const qInput=isVariableQ
+    ?`<input type="number" class="q-input" id="qEdit" value="${r.q}" min="${r.qMin}" max="${r.qMax}" onchange="updateQ(${rooms.indexOf(r)},this.value)"><div class="range-info">📏 Plage autorisée : ${r.qMin} – ${r.qMax} kg/m²</div>`
+    :`<div class="bc-value">${r.q}</div><div class="bc-unit">kg/m² (valeur fixe NF P 06-001)</div>`;
+
+  return `
+    <div class="detail-header">
+      <span class="icon">${getCatIcon(r.cat)}</span>
+      <div>
+        <div class="detail-title">${r.name}</div>
+        <div class="detail-cat">${r.cat}</div>
+      </div>
+    </div>
+    <div class="big-cards">
+      <div class="big-card q-card">
+        <div class="bc-label">⚖️ Charge d'exploitation (Q)</div>
+        ${qInput}
+        <div class="bc-bar"><div class="bc-bar-fill" style="width:${Math.min(100,r.q/maxQ*100)}%"></div></div>
+      </div>
+      <div class="big-card g-card">
+        <div class="bc-label">🏗️ Charge permanente (G)</div>
+        <div class="bc-value">${r.g}</div>
+        <div class="bc-unit">kg/m²</div>
+        <div class="bc-bar"><div class="bc-bar-fill" style="width:${Math.min(100,r.g/maxG*100)}%"></div></div>
+      </div>
+    </div>
+    <div class="info-section">
+      <h4>📋 Description technique</h4>
+      <p>${r.desc}</p>
+    </div>
+    ${getScenarioHTML(r)}
+    <div class="explanation-box">
+      <h4>💡 Pourquoi cette valeur ?</h4>
+      <ul>
+        <li>${r.explanation}</li>
+        ${isVariableQ?`<li><strong>✏️ Vous pouvez modifier Q</strong> entre ${r.qMin} et ${r.qMax} kg/m² selon l'aménagement réel du local.</li>`:''}
+        ${r.cat==='Restauration'?`<li>📖 NF P 06-001 § 5.2 : les locaux de restauration ont des charges variables selon la densité d'occupation et le mobilier.</li>`:''}
+        ${r.cat==='Hospitalier'?`<li>📖 NF P 06-004 : les établissements de santé nécessitent des charges majorées pour les équipements techniques.</li>`:''}
+        ${r.cat==='Sport'?`<li>📖 NF P 06-001 § 5.5 : les locaux sportifs et de spectacle ont des charges élevées dues aux rassemblements de public.</li>`:''}
+        ${r.cat==='Industriel'?`<li>📖 NF P 06-001 § 6 : les locaux industriels nécessitent des charges adaptées aux machines et aux chutes de charges.</li>`:''}
+      </ul>
+    </div>
+    <div class="ref-box">
+      <h4>📚 Références normatives</h4>
+      <p><strong>NF P 06-001</strong> (juin 1978) : Bases de calcul des ouvrages de construction — Charges d'exploitation des bâtiments.<br><br>
+      <strong>NF P 06-004</strong> : Actions du vent, de la neige, et charges d'exploitation spécifiques (hôpitaux, écoles, etc.).<br><br>
+      <em>Article 3 :</em> Les charges d'exploitation Q sont des charges variables définies selon la destination des locaux.<br>
+      <em>Article 5 :</em> Valeurs minimales et maximales selon les catégories d'usage (habitation, bureaux, écoles, hôpitaux, commerces, restaurants, etc.).<br>
+      <em>Article 6 :</em> Locaux industriels et locaux à usages spéciaux — charges à définir selon l'exploitation prévue.</p>
+    </div>
+  `;
+}
+
+function showDetail(id){
+  selectedId=id;
+  renderRooms();
+  const r=rooms[id];
+
+  // Desktop panel
+  document.getElementById('detailPanel').innerHTML=buildDetailHTML(r);
+
+  // Mobile sheet
+  document.getElementById('sheetTitle').textContent=r.name;
+  document.getElementById('sheetContent').innerHTML=buildDetailHTML(r);
+  document.getElementById('mobileBackdrop').classList.add('open');
+  document.getElementById('mobileSheet').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeSheet(){
+  document.getElementById('mobileBackdrop').classList.remove('open');
+  document.getElementById('mobileSheet').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function updateQ(id,newVal){
+  const val=parseFloat(newVal);
+  const r=rooms[id];
+  if(val>=r.qMin&&val<=r.qMax){
+    r.q=val;
+    showDetail(id);
+  }else{
+    alert(`❌ Valeur hors plage !\nAutorisé : ${r.qMin} – ${r.qMax} kg/m²`);
+    const input=document.getElementById('qEdit');
+    if(input)input.value=r.q;
+  }
+}
+
+function getCatIcon(cat){
+  const map={Habitation:'🏠',Bureaux:'🏢',Scolaire:'🎓',Hospitalier:'🏥',Hôtellerie:'🏨',Restauration:'🍽️',Commerce:'🛒',Loisirs:'🎭',Spectacles:'🎬',Sport:'⚽',Industriel:'🏭',Transport:'🚗',Religieux:'🕌',Autres:'📦'};
+  return map[cat]||'📐';
+}
+
+// Swipe down to close sheet
+let sheetTouchStartY=0;
+document.getElementById('mobileSheet').addEventListener('touchstart',e=>{sheetTouchStartY=e.touches[0].clientY;});
+document.getElementById('mobileSheet').addEventListener('touchend',e=>{
+  const diff=e.changedTouches[0].clientY-sheetTouchStartY;
+  if(diff>80)closeSheet();
+});
+
+// Init
+renderRooms();
+</script>
+</body>
+</html>
